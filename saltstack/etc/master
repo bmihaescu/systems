@@ -1,0 +1,22 @@
+worker_threads: 8
+timeout: 10
+ping_on_rotate: True
+
+file_roots:
+  base:
+    - /srv/salt/base/
+  prod:
+    - /srv/salt/prod/
+
+pillar_roots:
+  base:
+    - /srv/pillar
+  prod:
+    - /srv/pillar/prod
+
+log_level_logfile: info
+
+file_ignore_regex:
+
+  - '/\.git($|/)'
+

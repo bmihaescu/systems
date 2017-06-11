@@ -1,0 +1,15 @@
+---
+vm_provider: 'docker'
+
+docker:
+  image: 'centos/systemd'
+
+salt:
+  salt_path: './saltstack/salt'
+  pillar_path: './saltstack/pillar'
+
+hosts:
+  - 'saltmaster'
+  - 'loadbalancer'
+  - 'web01'
+  - 'web02'
