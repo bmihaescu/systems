@@ -5,8 +5,8 @@ docker:
   image: 'centos/systemd'
 
 salt:
-  salt_path: './saltstack/salt'
-  pillar_path: './saltstack/pillar'
+  salt_path: './salt'
+  pillar_path: './pillar'
 
 hosts:
   - 'saltmaster'
