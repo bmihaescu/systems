@@ -10,6 +10,6 @@ salt:
 
 hosts:
   - 'saltmaster'
-  - 'loadbalancer'
+#  - 'loadbalancer'
   - 'web01'
-  - 'web02'
+#  - 'web02'

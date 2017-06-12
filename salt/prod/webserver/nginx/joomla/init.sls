@@ -12,13 +12,24 @@
 
 # Get latest joomla
 wget https://downloads.joomla.org/cms/joomla3/3-7-2/Joomla_3-7.2-Stable-Full_Package.zip -P /tmp:
-  cmd.run
-    - shell: /bin/bash
+  cmd.run:
     - unless: 'ls /var/www/myapp.example.com/index.php'
 
 # Unzip it
-unzip -q Joomla_3-7.2-Stable-Full_Package.zip -d /var/www/myapp.example.com:
-  cmd.run
-    - shell: /bin/bash
+unzip -q /tmp/Joomla_3-7.2-Stable-Full_Package.zip -d /var/www/myapp.example.com:
+  cmd.run:
     - unless: 'ls /var/www/myapp.example.com/index.php'
 
+# Set owner
+chown -R nginx:nginx /var/www/myapp.example.com/:
+  cmd.run:
+    - unless: 'ls /var/www/myapp.example.com/index.php'
+
+# Set mode
+chown -R 755 /var/www/myapp.example.com/:
+  cmd.run:
+    - unless: 'ls /var/www/myapp.example.com/index.php'
+
+chown root:nginx /var/lib/php/session:
+  cmd.run:
+    - unless: 'ls /var/www/myapp.example.com/index.php'
