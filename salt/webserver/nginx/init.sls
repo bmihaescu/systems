@@ -32,6 +32,15 @@ nginx:
     - require:
       - pkg: nginx
 
+/var/www/myapp.example.com/index.html:
+  file.managed:
+    - source: salt://webserver/nginx/testlb_index.html
+    - user: root
+    - group: root
+    - mode: '0755'
+    - template: jinja
+    - pkg: nginx
+
 /etc/nginx/nginx.conf:
   file.managed:
     - source: salt://webserver/nginx/nginx.conf.default

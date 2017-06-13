@@ -39,7 +39,7 @@ http {
 
     location / {
         root  /var/www/myapp.example.com;
-        index  index.php index.php;
+        index.html;
         try_files $uri $uri/ =404;
     }
 
