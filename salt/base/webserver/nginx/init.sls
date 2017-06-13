@@ -32,7 +32,7 @@ nginx:
     - require:
       - pkg: nginx
 
-/var/www/myapp.example.com/index.html:
+/var/www/html/index.html:
   file.managed:
     - source: salt://webserver/nginx/testlb_index.html
     - user: root
@@ -49,4 +49,12 @@ nginx:
     - mode: '0644'
     - pkg: nginx
 
+enable_service:
+  cmd.run:
+    - name: 'systemctl enable nginx'
+    - user: root
 
+start_service:
+  cmd.run:
+    - name: 'systemctl restart nginx'
+    - user: root

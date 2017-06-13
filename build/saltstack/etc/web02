@@ -4,4 +4,4 @@
 master: saltmaster.example.com
 
 #minion id:
-id: web022example.com
+id: web02.example.com

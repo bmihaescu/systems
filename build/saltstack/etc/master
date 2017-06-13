@@ -4,15 +4,11 @@ ping_on_rotate: True
 
 file_roots:
   base:
-    - /srv/salt/base/
-  prod:
-    - /srv/salt/prod/
+    - /srv/salt/base
 
 pillar_roots:
   base:
-    - /srv/pillar
-  prod:
-    - /srv/pillar/prod
+    - /srv/pillar/base
 
 log_level_logfile: info
 

@@ -22,14 +22,11 @@ unzip -q /tmp/Joomla_3-7.2-Stable-Full_Package.zip -d /var/www/myapp.example.com
 
 # Set owner
 chown -R nginx:nginx /var/www/myapp.example.com/:
-  cmd.run:
-    - unless: 'ls /var/www/myapp.example.com/index.php'
+  cmd.run
 
 # Set mode
-chown -R 755 /var/www/myapp.example.com/:
-  cmd.run:
-    - unless: 'ls /var/www/myapp.example.com/index.php'
+chmod -R 755 /var/www/myapp.example.com/:
+  cmd.run
 
 chown root:nginx /var/lib/php/session:
-  cmd.run:
-    - unless: 'ls /var/www/myapp.example.com/index.php'
+  cmd.run

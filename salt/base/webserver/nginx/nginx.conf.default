@@ -38,8 +38,8 @@ http {
     server_name myapp.example.com www.myapp.example.com;
 
     location / {
-        root  /var/www/myapp.example.com;
-        index.html;
+        root  /var/www/html;
+        index  index.html  index.htm;
         try_files $uri $uri/ =404;
     }
 

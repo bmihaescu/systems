@@ -19,7 +19,13 @@ haproxy:
     - mode: '0644'
     - template: jinja
 
-service:
-    - name: haproxy
-    - running
+enable_service:
+  cmd.run:
+    - name: 'systemctl enable haproxy'
+    - user: root
+
+start_service:
+  cmd.run:
+    - name: 'systemctl start haproxy'
+    - user: root
 

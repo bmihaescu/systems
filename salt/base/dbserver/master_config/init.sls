@@ -44,5 +44,5 @@ alter_user:
 
 restart_sql_service:
   cmd.run:
-    - name: 'service postgresql restart'
+    - name: 'systemctl restart postgresql'
     - user: root

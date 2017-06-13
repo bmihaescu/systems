@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
 	
   settings['hosts'].each do |my_host|
     config.vm.define my_host do |saltbox|
+      config.vm.boot_timeout = 600
       saltbox.vm.provider "docker" do |d|
         d.build_dir = "build/"
 	d.has_ssh = true
