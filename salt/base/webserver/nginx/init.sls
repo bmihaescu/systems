@@ -1,6 +1,3 @@
-epel-release:
-  pkg.installed
-
 nginx:
   pkg:
     - installed
@@ -54,7 +51,7 @@ enable_service:
     - name: 'systemctl enable nginx'
     - user: root
 
-start_service:
+restart_service:
   cmd.run:
     - name: 'systemctl restart nginx'
     - user: root
