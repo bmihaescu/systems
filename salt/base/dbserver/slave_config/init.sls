@@ -1,4 +1,4 @@
-/etc/postgresql/9.5/main/postgresql.conf:
+/var/lib/pgsql/data/postgresql.conf:
   file.managed:
     - source: salt://dbserver/slave_config/postgresql.conf
     - user: postgres
@@ -6,24 +6,24 @@
     - mode: '0644'
     - template: jinja
     - require:
-      - pkg: postgresql
+      - pkg: postgresql-server
 
 stop_sql_service:
   cmd.run:
-    - name: 'systemctl restart postgresql'
+    - name: 'systemctl stop postgresql'
     - user: root
 
-backup_original_main:
+backup_original_data:
   cmd.run:
-    - name: 'mv 9.5/main 9.5/main_original'
+    - name: 'mv data data_original'
     - user: postgres
 
 copy_master_data:
   cmd.run:
-    - name: 'export PGPASSWORD=Admin123; pg_basebackup -h db_master01.example.com -D /var/lib/postgresql/9.5/main -U joomla_user -v -P -w'
+    - name: 'export PGPASSWORD=Admin123; pg_basebackup -h dbmaster.example.com -D /var/lib/pgsql/data/ -U joomla_user -v -P -w'
     - user: postgres
 
-/var/lib/postgresql/9.5/main/recovery.conf:
+/var/lib/pgsql/data/recovery.conf:
   file.managed:
     - source: salt://dbserver/slave_config/recovery.conf
     - user: postgres
@@ -31,9 +31,9 @@ copy_master_data:
     - mode: '0644'
     - template: jinja
     - require:
-      - pkg: postgresql
+      - pkg: postgresql-server
 
-start_sql_service:
+restart_sql_service:
   cmd.run:
     - name: 'systemctl start postgresql'
     - user: root

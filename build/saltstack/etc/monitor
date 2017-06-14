@@ -1,0 +1,7 @@
+
+# Set the location of the salt master server. If the master server cannot be
+# resolved, then the minion will fail to start.
+master: saltmaster.example.com
+
+#minion id:
+id: monitor.example.com

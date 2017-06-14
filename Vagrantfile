@@ -34,6 +34,10 @@ Vagrant.configure("2") do |config|
       $is_lb_minion = (my_host == 'loadbalancer') ? true : false
       $is_web01_minion = (my_host == 'web01') ? true : false
       $is_web02_minion = (my_host == 'web02') ? true : false
+      $is_db_master_minion = (my_host == 'dbmaster') ? true : false
+      $is_db_slave_minion = (my_host == 'dbslave') ? true : false
+      $is_monitor_minion = (my_host == 'monitor') ? true : false
+
       if ($is_salt_master == true)
         saltbox.vm.synced_folder ".", "/vagrant", create: true
         saltbox.vm.synced_folder "#{settings['salt']['salt_path']}", "/srv/salt", create: true
@@ -64,7 +68,10 @@ Vagrant.configure("2") do |config|
 	  salt.seed_master = {
 		             "loadbalancer.example.com" => "build/saltstack/keys/loadbalancer.example.com.pub",
 		             "web01.example.com" => "build/saltstack/keys/web01.example.com.pub",
-		             "web02.example.com" => "build/saltstack/keys/web02.example.com.pub"
+		             "web02.example.com" => "build/saltstack/keys/web02.example.com.pub",
+			     "db_master.example.com" => "build/saltstack/keys/db_master.example.com.pub",
+                             "db_slave.example.com" => "build/saltstack/keys/db_slave.example.com.pub",
+			     "monitor.example.com" => "build/saltstack/keys/monitor.example.com.pub"
 			     }		
 	  salt.bootstrap_options += ' -M -S'
 	  salt.install_master = true
@@ -86,6 +93,24 @@ Vagrant.configure("2") do |config|
 	  salt.minion_config = "build/saltstack/etc/web02"
           salt.minion_key = "build/saltstack/keys/web02.example.com.pem"
           salt.minion_pub = "build/saltstack/keys/web02.example.com.pub"
+	  salt.run_highstate = false
+	end
+	if ($is_db_master_minion == true)
+	  salt.minion_config = "build/saltstack/etc/db_master"
+          salt.minion_key = "build/saltstack/keys/db_master.example.com.pem"
+          salt.minion_pub = "build/saltstack/keys/db_master.example.com.pub"
+	  salt.run_highstate = false
+	end
+	if ($is_db_slave_minion == true)
+	  salt.minion_config = "build/saltstack/etc/db_slave"
+          salt.minion_key = "build/saltstack/keys/db_slave.example.com.pem"
+          salt.minion_pub = "build/saltstack/keys/db_slave.example.com.pub"
+	  salt.run_highstate = false
+	end
+	if ($is_monitor_minion == true)
+	  salt.minion_config = "build/saltstack/etc/monitor"
+          salt.minion_key = "build/saltstack/keys/monitor.example.com.pem"
+          salt.minion_pub = "build/saltstack/keys/monitor.example.com.pub"
 	  salt.run_highstate = false
 	end
       end   
