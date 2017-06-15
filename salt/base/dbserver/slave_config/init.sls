@@ -33,11 +33,6 @@ copy_master_data:
     - require:
       - pkg: postgresql-server
 
-restart_sql_service:
-  cmd.run:
-    - name: 'systemctl start postgresql'
-    - user: root
-
 # Add trigger script to the scripts directory
 
 /opt/scripts:

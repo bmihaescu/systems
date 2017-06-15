@@ -4,4 +4,4 @@
 master: saltmaster.example.com
 
 #minion id:
-id: db_master.example.com
+id: dbmaster.example.com

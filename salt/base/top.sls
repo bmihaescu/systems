@@ -13,8 +13,8 @@ base:
   'db*':
     - dbserver.postgresql
 
-  'db_master*':
+  'dbmaster*':
     - dbserver.master_config
 
-  'db_slave*':
+  'dbslave*':
     - dbserver.slave_config
