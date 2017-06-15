@@ -39,6 +39,16 @@ sshpass:
 collectd:
   pkg.installed
 
+/etc/collectd.conf:
+  file.managed:
+    - source: salt://system_tools/collectd.conf
+    - user: root
+    - group: root
+    - mode: '0644'
+    - template: jinja
+    - require:
+      - pkg: collectd
+
 start_collectd_service:
   cmd.run:
     - name: 'systemctl start collectd'

@@ -1,6 +1,6 @@
 install_grafana:
   cmd.run:
-    - name: 'yum install https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.3.1-1.x86_64.rpm'
+    - name: 'yum install https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.3.1-1.x86_64.rpm -y'
     - user: root
 
 start_service:

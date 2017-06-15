@@ -18,3 +18,7 @@ base:
 
   'dbslave*':
     - dbserver.slave_config
+
+  'monitor*':
+    - monitorserver.grafana
+    - monitorserver.influxdb

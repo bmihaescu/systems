@@ -10,9 +10,9 @@ salt:
 
 hosts:
   - 'saltmaster'
-#  - 'loadbalancer'
+  - 'loadbalancer'
 #  - 'web01'
 #  - 'web02'
-  - 'dbmaster'
-  - 'dbslave'
-#  - 'monitor'
+#  - 'dbmaster'
+#  - 'dbslave'
+  - 'monitor'
