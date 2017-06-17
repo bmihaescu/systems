@@ -11,11 +11,26 @@ install_grafana:
     - mode: '0644'
     - template: jinja
 
+/var/lib/grafana/dashboards:
+  file.directory:
+    - user: grafana
+    - group: grafana
+    - mode: '0755'
+    - makedirs: True
+
+/var/lib/grafana/dashboards/DevOps_Monitor.json:
+  file.managed:
+    - source: salt://monitorserver/grafana/DevOps_Monitor.json
+    - user: grafana
+    - group: grafana
+    - mode: '0644'
+    - template: jinja
+
 /etc/grafana/cert.pem:
   file.managed:
     - source: salt://monitorserver/grafana/ssl/cert.pem
     - user: root
-    - group: root
+    - group: grafana
     - mode: '0644'
     - template: jinja
 
@@ -23,7 +38,7 @@ install_grafana:
   file.managed:
     - source: salt://monitorserver/grafana/ssl/cert.key
     - user: root
-    - group: root
+    - group: grafana
     - mode: '0644'
     - template: jinja
 
