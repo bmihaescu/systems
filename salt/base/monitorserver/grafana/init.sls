@@ -3,9 +3,9 @@ install_grafana:
     - name: 'yum install https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.3.1-1.x86_64.rpm -y'
     - user: root
 
-/etc/grafana/grafana.init:
+/etc/grafana/grafana.ini:
   file.managed:
-    - source: salt://monitorserver/grafana/grafana.init
+    - source: salt://monitorserver/grafana/grafana.ini
     - user: root
     - group: root
     - mode: '0644'
@@ -42,9 +42,8 @@ install_grafana:
     - mode: '0644'
     - template: jinja
 
-config_any_port:
+setcap 'cap_net_bind_service=+ep' /usr/sbin/grafana-server:
   cmd.run:
-    - name: 'setcap 'cap_net_bind_service=+ep' /usr/sbin/grafana-server'
     - user: root
 
 start_service:

@@ -12,7 +12,7 @@ hosts:
   - 'saltmaster'
   - 'loadbalancer'
   - 'web01'
-  - 'web02'
+#  - 'web02'
 #  - 'dbmaster'
 #  - 'dbslave'
   - 'monitor'
