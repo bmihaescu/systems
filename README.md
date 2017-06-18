@@ -6,8 +6,8 @@ Description:
 - All passwords are Admin1234
 - All the configuration is centralized by Saltstack with roles
 - The Joomla webapp run as https://myapp.example.com
-- Ladbalancer has a self-signed SSL certificate
-- Postgres databases work in a master-slave setup (hot_standby)
+- Loadbalancer has a self-signed SSL certificate
+- PostgreSQL databases work in a master-slave setup (hot_standby)
 - Monitoring host uses CollectD and Influxdb to pick up metrics and display them using Grafana
 
 Tech Requirements:

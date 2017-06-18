@@ -4,4 +4,4 @@
 master: saltmaster.example.com
 
 #minion id:
-id: loadbalancer.example.com
+id: myapp.example.com

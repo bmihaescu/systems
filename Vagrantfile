@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
       saltbox.ssh.insert_key = false
       
       $is_salt_master = (my_host == 'saltmaster') ? true : false
-      $is_lb_minion = (my_host == 'loadbalancer') ? true : false
+      $is_lb_minion = (my_host == 'myapp') ? true : false
       $is_web01_minion = (my_host == 'web01') ? true : false
       $is_web02_minion = (my_host == 'web02') ? true : false
       $is_dbmaster_minion = (my_host == 'dbmaster') ? true : false
@@ -68,7 +68,7 @@ Vagrant.configure("2") do |config|
           salt.master_key = "build/saltstack/keys/master.pem"
 	  salt.master_pub = "build/saltstack/keys/master.pub"
 	  salt.seed_master = {
-		             "loadbalancer.example.com" => "build/saltstack/keys/loadbalancer.example.com.pub",
+		             "myapp.example.com" => "build/saltstack/keys/myapp.example.com.pub",
 		             "web01.example.com" => "build/saltstack/keys/web01.example.com.pub",
 		             "web02.example.com" => "build/saltstack/keys/web02.example.com.pub",
 			     "dbmaster.example.com" => "build/saltstack/keys/dbmaster.example.com.pub",
@@ -80,9 +80,9 @@ Vagrant.configure("2") do |config|
 	  salt.run_highstate = true
 	end
         if ($is_lb_minion == true)
-	  salt.minion_config = "build/saltstack/etc/loadbalancer"
-          salt.minion_key = "build/saltstack/keys/loadbalancer.example.com.pem"
-          salt.minion_pub = "build/saltstack/keys/loadbalancer.example.com.pub"
+	  salt.minion_config = "build/saltstack/etc/myapp"
+          salt.minion_key = "build/saltstack/keys/myapp.example.com.pem"
+          salt.minion_pub = "build/saltstack/keys/myapp.example.com.pub"
 	  salt.run_highstate = false
 	end
 	if ($is_web01_minion == true)

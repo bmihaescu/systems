@@ -2,7 +2,7 @@ base:
   '*':
     - system_tools
 
-  'loadbalancer*':
+  'myapp*':
     - loadbalancer.haproxy
 
   'web*':

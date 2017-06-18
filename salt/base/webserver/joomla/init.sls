@@ -20,17 +20,6 @@ unzip -q /tmp/Joomla_3-7.2-Stable-Full_Package.zip -d /var/www/myapp.example.com
   cmd.run:
     - unless: 'ls /var/www/myapp.example.com/index.php'
 
-# Set owner
-chown -R nginx:nginx /var/www/myapp.example.com/:
-  cmd.run
-
-# Set mode
-chmod -R 755 /var/www/myapp.example.com/:
-  cmd.run
-
-chown root:nginx /var/lib/php/session:
-  cmd.run
-
 restart_service:
   cmd.run:
     - name: 'systemctl restart nginx'

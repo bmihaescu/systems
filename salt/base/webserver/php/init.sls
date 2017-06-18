@@ -12,8 +12,11 @@ php70w-intl:
   pkg.installed
 php70w-mysql:
   pkg.installed
+php70w-pgsql:
+  pkg.installed
 php70w-mcrypt:
   pkg.installed
+
 
 start_php_fpm_service:
   cmd.run:
