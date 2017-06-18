@@ -1,6 +1,6 @@
 /etc/nginx/sites-available/joomla:
   file.managed:
-    - source: salt://webserver/nginx/joomla/vhost_joomla
+    - source: salt://webserver/joomla/vhost_joomla
     - user: root
     - group: root
     - mode: '0644'
@@ -30,3 +30,8 @@ chmod -R 755 /var/www/myapp.example.com/:
 
 chown root:nginx /var/lib/php/session:
   cmd.run
+
+restart_service:
+  cmd.run:
+    - name: 'systemctl restart nginx'
+    - user: root

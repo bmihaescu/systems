@@ -8,7 +8,7 @@ base:
   'web*':
     - webserver.php
     - webserver.nginx
-    - webserver.nginx.joomla
+    - webserver.joomla
 
   'db*':
     - dbserver.postgresql
@@ -20,5 +20,5 @@ base:
     - dbserver.slave_config
 
   'monitor*':
-    - monitorserver.grafana
     - monitorserver.influxdb
+    - monitorserver.grafana

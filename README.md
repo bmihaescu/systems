@@ -1,5 +1,15 @@
 Create a vagrant setup with Docker backend that will create a highly available web application using Joomla.
 
+Description:
+
+- All hosts run Centos 7
+- All passwords are Admin1234
+- All the configuration is centralized by Saltstack with roles
+- The Joomla webapp run as https://myapp.example.com
+- Ladbalancer has a self-signed SSL certificate
+- Postgres databases work in a master-slave setup (hot_standby)
+- Monitoring host uses CollectD and Influxdb to pick up metrics and display them using Grafana
+
 Tech Requirements:
 
 - Vagrant

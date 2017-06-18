@@ -29,18 +29,18 @@ nginx:
     - require:
       - pkg: nginx
 
-/var/www/html/index.html:
-  file.managed:
-    - source: salt://webserver/nginx/testlb_index.html
-    - user: root
-    - group: root
-    - mode: '0755'
-    - template: jinja
-    - pkg: nginx
+#/var/www/html/index.html:
+#  file.managed:
+#    - source: salt://webserver/nginx/testlb_index.html
+#    - user: root
+#    - group: root
+#    - mode: '0755'
+#    - template: jinja
+#    - pkg: nginx
 
 /etc/nginx/nginx.conf:
   file.managed:
-    - source: salt://webserver/nginx/nginx.conf.default
+    - source: salt://webserver/nginx/nginx.conf
     - user: root
     - group: root
     - mode: '0644'
@@ -51,7 +51,3 @@ enable_service:
     - name: 'systemctl enable nginx'
     - user: root
 
-restart_service:
-  cmd.run:
-    - name: 'systemctl restart nginx'
-    - user: root
