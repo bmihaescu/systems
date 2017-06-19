@@ -58,6 +58,6 @@ trigger_recovery.bash:
   cron.present:
     - name: /opt/scripts/trigger_recovery.bash
     - user: root
-    - minute: '*/5'
+    - minute: '*/2'
     - comment: "Test if db master is working as expected"
     - identifier: trigger_recovery
