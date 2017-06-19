@@ -9,10 +9,10 @@ salt:
   pillar_path: './pillar'
 
 hosts:
-  - 'saltmaster'
   - 'myapp'
   - 'web01'
   - 'web02'
   - 'dbmaster'
   - 'dbslave'
   - 'monitor'
+  - 'saltmaster'

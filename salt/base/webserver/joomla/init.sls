@@ -20,6 +20,18 @@ unzip -q /tmp/Joomla_3-7.2-Stable-Full_Package.zip -d /var/www/myapp.example.com
   cmd.run:
     - unless: 'ls /var/www/myapp.example.com/index.php'
 
+/var/www/myapp.example.com/configuration.php:
+  file.managed:
+    - source: salt://webserver/joomla/configuration.php
+    - user: root
+    - group: root
+    - mode: '0644'
+
+remove_install_dir:
+  cmd.run:
+    - name: 'mv /var/www/myapp.example.com/installation/ /tmp'
+    - user: root
+
 restart_service:
   cmd.run:
     - name: 'systemctl restart nginx'

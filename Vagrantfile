@@ -12,6 +12,7 @@ end
 Vagrant.configure("2") do |config|
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
+  config.hostmanager.manage_guest = true
   config.hostmanager.include_offline = true
 
   if settings['vm_provider'] == 'docker'
@@ -20,7 +21,7 @@ Vagrant.configure("2") do |config|
 	
   settings['hosts'].each do |my_host|
     config.vm.define my_host do |saltbox|
-      config.vm.boot_timeout = 600
+      config.vm.boot_timeout = 6000
       saltbox.vm.provider "docker" do |d|
         d.build_dir = "build/"
 	d.has_ssh = true

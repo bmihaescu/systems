@@ -3,6 +3,9 @@ install_grafana:
     - name: 'yum install https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.3.1-1.x86_64.rpm -y'
     - user: root
 
+httpie:
+  pkg.installed
+
 /etc/grafana/grafana.ini:
   file.managed:
     - source: salt://monitorserver/grafana/grafana.ini

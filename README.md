@@ -19,7 +19,7 @@ Tech Requirements:
 
 How to validate the setup:
 
-    vagrant up on each individual VM (saltmaster should be last one)
+    vagrant up (saltmaster should be last one)
     Using firefox: https://myapp.example.com - loads preconfigured Joomla
     Using firefox: https://monitor.example.com - loads Grafana with metrics from all hosts
 
