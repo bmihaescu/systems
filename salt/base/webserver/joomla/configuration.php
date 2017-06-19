@@ -16,9 +16,9 @@ class JConfig {
 	public $user = 'joomla_user';
 	public $password = 'Admin123';
 	public $db = 'joomladb';
-	public $dbprefix = 'i2ka7_';
+	public $dbprefix = 'akt0q_';
 	public $live_site = '';
-	public $secret = 'npOTYP7OEoojz9fW';
+	public $secret = '6lUF2TDzhYcbRJcF';
 	public $gzip = '0';
 	public $error_reporting = 'default';
 	public $helpurl = 'https://help.joomla.org/proxy/index.php?keyref=Help{major}{minor}:{keyref}';
@@ -44,7 +44,7 @@ class JConfig {
 	public $cache_handler = 'file';
 	public $cachetime = '15';
 	public $cache_platformprefix = '0';
-	public $MetaDesc = '';
+	public $MetaDesc = 'Homework';
 	public $MetaKeys = '';
 	public $MetaTitle = '1';
 	public $MetaAuthor = '1';
