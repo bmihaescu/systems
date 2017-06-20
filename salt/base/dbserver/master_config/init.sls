@@ -1,3 +1,10 @@
+/tmp/joomladb.bak:
+  file.managed:
+    - source: salt://dbserver/master_config/db_dump
+    - user: root
+    - group: root
+    - mode: '0644'
+
 /var/lib/pgsql/data/postgresql.conf:
   file.managed:
     - source: salt://dbserver/master_config/postgresql.conf
@@ -35,6 +42,11 @@ create_db:
 create_user:
   cmd.run:
     - name: 'createuser joomla_user -d'
+    - user: postgres
+
+restor_db:
+  cmd.run:
+    - name: 'psql joomladb < /tmp/joomladb.bak'
     - user: postgres
 
 alter_user:

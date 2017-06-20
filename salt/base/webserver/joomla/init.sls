@@ -27,9 +27,9 @@ unzip -q /tmp/Joomla_3-7.2-Stable-Full_Package.zip -d /var/www/myapp.example.com
     - group: root
     - mode: '0644'
 
-remove_install_dir:
+chown_wwww:
   cmd.run:
-    - name: 'sudo rm -rf /var/www/myapp.example.com/installation/'
+    - name: 'sudo chown -R apache:apache /var/www'
 
 restart_service:
   cmd.run:

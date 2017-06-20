@@ -23,9 +23,9 @@ nginx:
 
 /var/www/myapp.example.com:
   file.directory:
-    - user: root
-    - group: root
-    - mode: '0755'
+    - user: apache
+    - group: apache
+    - mode: '0775'
     - require:
       - pkg: nginx
 
