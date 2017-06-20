@@ -16,14 +16,14 @@ class JConfig {
 	public $user = 'joomla_user';
 	public $password = 'Admin123';
 	public $db = 'joomladb';
-	public $dbprefix = 'k94fs_';
+	public $dbprefix = 'zawd4_';
 	public $live_site = '';
-	public $secret = 'nAGnqFviTSpXueRN';
+	public $secret = 'Lw6ixSLeL2yhqSEb';
 	public $gzip = '0';
 	public $error_reporting = 'default';
 	public $helpurl = 'https://help.joomla.org/proxy/index.php?keyref=Help{major}{minor}:{keyref}';
-	public $ftp_host = '127.0.0.1';
-	public $ftp_port = '21';
+	public $ftp_host = '';
+	public $ftp_port = '';
 	public $ftp_user = '';
 	public $ftp_pass = '';
 	public $ftp_root = '';
