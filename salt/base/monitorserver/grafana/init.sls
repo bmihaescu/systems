@@ -3,9 +3,6 @@ install_grafana:
     - name: 'yum install https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.3.1-1.x86_64.rpm -y'
     - user: root
 
-httpie:
-  pkg.installed
-
 /etc/grafana/grafana.ini:
   file.managed:
     - source: salt://monitorserver/grafana/grafana.ini
@@ -57,5 +54,15 @@ start_service:
 enable_service:
   cmd.run:
     - name: 'systemctl enable grafana-server'
+    - user: root
+
+/etc/grafana/add_datasource.bash:
+  file.managed:
+    - name: /etc/grafana/add_datasource.bash
+    - source: salt://monitorserver/grafana/add_datasource.bash
+    - user: root
+    - group: grafana
+    - mode: '0755'
+  cmd.run:
     - user: root
 
